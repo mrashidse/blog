@@ -16,10 +16,10 @@
 
     <!-- Styles -->
     <style>
-        html, body {
+       html,body {
             background-color: #fff;
-            color: #636b6f;
-            font-family: 'Raleway', sans-serif;
+            color: #2e3436;
+            font-family: 'Halvetica', sans-serif;
             font-weight: 100;
             height: 100vh;
             margin: 0;
@@ -69,26 +69,17 @@
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">Blog App</a>
-            </div>
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">Page 1</a></li>
-                <li><a href="#">Page 2</a></li>
-                <li><a href="#">Page 3</a></li>
-            </ul>
-        </div>
-    </nav>
-    <section class="container">
-        <div class="row">
-            <h1>Create User</h1>
-        </div>
-        <form id="frmUser" method="post" action="{{route('users.store')}}">
-            {{csrf_field()}}
-            <div class="form-group">
+<nav class="navbar navbar-inverse navbar-static-top" >
+    <div class="container">
+        <a href="#"class="navbar-brand" >Laravel Blog</a>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="active" ><a href="#">Home</a></li>
+            <li><a href="#">Page 1</a></li>
+            <li><a href="#">Page 2</a></li>
+        </ul>
+    </div>
+</nav>
+    <section class="col-sm-6">
                 <label for="pwd">First Name</label>
                 <input type="text" id="first_name" name="first_name" class="form-control" >
             </div>
@@ -118,6 +109,7 @@
             </div>
         </form>
     </section>
+
     <script src="{{asset('assets/js/jquery.min.js')}}"></script>
     <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
 </body>
