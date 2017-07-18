@@ -79,7 +79,13 @@
         </ul>
     </div>
 </nav>
-    <section class="col-sm-6">
+       <section class="container">
+            <div class="row">
+                <h1>Create User</h1>
+            </div>
+             <form id="frmUser" method="post" action="{{route('users.store')}}">
+                     {{csrf_field()}}
+            <div class="form-group">
                 <label for="pwd">First Name</label>
                 <input type="text" id="first_name" name="first_name" class="form-control" >
             </div>
