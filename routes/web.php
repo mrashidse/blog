@@ -13,12 +13,13 @@
 use \App\Http\Controllers\HomeController;
 use \App\Http\Controllers\UserController;
 
-Route::get('home/abc/efg/{code}','HomeController@test')->name('test');
 
 /*Route::post();
 Route::any();
 Route::resource();
 Route::group();*/
+//Route::get('user/create','UserController@create')->name('createUser');
+
 
 Route::group(['public'],function (){
 
@@ -35,7 +36,7 @@ Route::group(['public'],function (){
 
     Route::group(['Users'], function () {
         Route::resource('users',"UserController");
-        
+
         /*Route::get('users.index',"UserController@index")->name('users.index');
         Route::get('users.create',"UserController@create")->name('users.create');
         Route::get('users.edit/{id}',"UserController@edit")->name('users.edit');
@@ -51,6 +52,13 @@ Route::group(['public'],function (){
     Route::group(['Posts'], function () {
         Route::post('/results', ['uses' => 'HomeController@searchPosts', 'as' => 'results' ]);
         Route::get('/show/{post_id}', ['uses' => 'PostController@show', 'as' => 'posts.show']);
+    });
+
+    Route::group(['Testing'], function () {
+        Route::get('/testing/index', ['uses' => 'TestingController@index', 'as' => 'testingIndex' ]);
+        Route::get('/testing/create', ['uses' => 'TestingController@create', 'as' => 'testingCreate' ]);
+        Route::get('/testing/edit/{id}', ['uses' => 'TestingController@edit', 'as' => 'testingEdit' ]);
+        Route::post('/testing/save-testing-user', ['uses' => 'TestingController@saveTestingUser', 'as' => 'saveTestingUser' ]);
     });
 });
 
@@ -70,4 +78,16 @@ Route::group(['private', "middleware" => 'auth'],function (){
         Route::put('/updateCategory/{id}', ['uses' => 'CategoryController@update_cat', 'as' => 'updateCategory']);
     });
 });
+
+/*Route::get('test',function(){
+    $post = new Post();
+    $formData['conent'] = "sdadasdsadasdsa";
+    $formData['abc'] = "sdas";
+    $post->savePost($formData);
+})->name('test');*/
+
 Auth::routes();
+
+Route::get('abc',function (){
+    echo '<a href="'. route('createUser').'">Click Here</a>';
+});

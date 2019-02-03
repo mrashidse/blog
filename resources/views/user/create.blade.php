@@ -84,7 +84,7 @@
     </nav>
     <section class="container">
         <div class="row">
-            <h1>Create User</h1>
+            <h1>{{$title}}</h1>
         </div>
         <form id="frmUser" method="post" action="{{route('users.store')}}">
             {{csrf_field()}}
@@ -96,6 +96,11 @@
             <div class="form-group">
                 <label for="pwd">Last Name:</label>
                 <input type="text" id="last_name" name="last_name"  class="form-control" >
+            </div>
+
+            <div class="form-group">
+                <label for="pwd">Name:</label>
+                <input type="text" id="last_name" name="name"  class="form-control" >
             </div>
 
             <div class="form-group">

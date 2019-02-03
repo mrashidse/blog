@@ -18,7 +18,7 @@ class CreatePostsTable extends Migration
             $table->integer('user_id');
             $table->string('title', 60)->nullable(); //might not be nullable.
             $table->string('photo', 100)->nullable(); //photo might be rename as image as in users table.
-            $table->string('description', 512)->nullable();
+            $table->text('description', 512)->nullable();
             $table->timestamps();
         });
     }

@@ -34,7 +34,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('user.create');
+        $title = "My Create User Form";
+        return view('user.create',compact('title'));
     }
 
     /**
@@ -47,10 +48,12 @@ class UserController extends Controller
     {
         // $request->get('email');
         $formData = $request->all();
-        $formData = array_except($formData,['_token','btnSave']);
+//        dd($formData);
+        /*$formData = array_except($formData,['_token','btnSave']);
         $formData['name'] = $formData['first_name'] . ' '. $formData['last_name'];
         $formData['password'] =  \Hash::make($formData['password']);
-        $this->_user->saveUser($formData);
+        $this->_user->saveUser($formData);*/
+        User::create($formData);
         return redirect()->route('users.create');
     }
 
